@@ -104,3 +104,29 @@ exibe_justificativa([Trilha|T]) :-
          format('Característica: ~w -> Pontos: ~w~n~n', [Caracteristica, Pontos]))
     ),
     exibe_justificativa(T).
+
+% --- Calcula pontuação de todas as trilhas ---
+calcula_todas_trilhas(ListaTrilhas) :-
+    findall(Trilha-Pont,
+        (trilha(Trilha, _),
+         calcula_pontuacao(Trilha, Pont)),
+        ListaTrilhas).
+
+% --- Calcula pontuação de uma trilha ---
+calcula_pontuacao(Trilha, Total) :-
+    findall(Pontos,
+            (resposta(Id, s), 
+            pergunta(Id, _, Caracteristica),
+            perfil(Trilha, Caracteristica, Pontos)),
+            ListaPontos),
+    sum_list(ListaPontos, Total).
+
+% --- Ordena trilhas por pontuação decrescente ---
+ordena_trilhas(Lista, Ordenada) :-
+    sort(2, @>=, Lista, Ordenada).
+
+% --- Encontra todas as trilhas com maior pontuação ---
+encontra_melhor_trilha(Lista, TrilhasFinais) :-
+    findall(Pont, member(_-Pont, Lista), Pontos),
+    max_list(Pontos, Max),
+    findall(Trilha, member(Trilha-Max, Lista), TrilhasFinais).
