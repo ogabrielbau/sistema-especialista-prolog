@@ -18,58 +18,58 @@ perguntas(8,'Você tem afinidade com pipelines de integração contínua e monit
 perguntas(9,'Você se sente confortável em traduzir necessidades de clientes em funcionalidades de software?').
 perguntas(10,'Você tem interesse em desenvolver soluções escaláveis e de alta performance no backend?').
 
-% --- Relevâncias ---
-relevancia('Inteligencia Artificial', 1, 5).
-relevancia('Inteligencia Artificial', 2, 2).
-relevancia('Inteligencia Artificial', 3, 3).
-relevancia('Inteligencia Artificial', 4, 1).
-relevancia('Inteligencia Artificial', 5, 1).
-relevancia('Inteligencia Artificial', 6, 5).
-relevancia('Inteligencia Artificial', 7, 2).
-relevancia('Inteligencia Artificial', 8, 1).
-relevancia('Inteligencia Artificial', 9, 1).
-relevancia('Inteligencia Artificial', 10, 2).
+% --- perfil(trilha, id pergunta, pontuacao) ---
+perfil('Inteligencia Artificial', 1, 5).
+perfil('Inteligencia Artificial', 2, 2).
+perfil('Inteligencia Artificial', 3, 3).
+perfil('Inteligencia Artificial', 4, 1).
+perfil('Inteligencia Artificial', 5, 1).
+perfil('Inteligencia Artificial', 6, 5).
+perfil('Inteligencia Artificial', 7, 2).
+perfil('Inteligencia Artificial', 8, 1).
+perfil('Inteligencia Artificial', 9, 1).
+perfil('Inteligencia Artificial', 10, 2).
 
-relevancia('Desenvolvimento Backend', 1, 1).
-relevancia('Desenvolvimento Backend', 2, 5).
-relevancia('Desenvolvimento Backend', 3, 2).
-relevancia('Desenvolvimento Backend', 4, 2).
-relevancia('Desenvolvimento Backend', 5, 1).
-relevancia('Desenvolvimento Backend', 6, 1).
-relevancia('Desenvolvimento Backend', 7, 3).
-relevancia('Desenvolvimento Backend', 8, 2).
-relevancia('Desenvolvimento Backend', 9, 1).
-relevancia('Desenvolvimento Backend', 10, 5).
+perfil('Desenvolvimento Backend', 1, 1).
+perfil('Desenvolvimento Backend', 2, 5).
+perfil('Desenvolvimento Backend', 3, 2).
+perfil('Desenvolvimento Backend', 4, 2).
+perfil('Desenvolvimento Backend', 5, 1).
+perfil('Desenvolvimento Backend', 6, 1).
+perfil('Desenvolvimento Backend', 7, 3).
+perfil('Desenvolvimento Backend', 8, 2).
+perfil('Desenvolvimento Backend', 9, 1).
+perfil('Desenvolvimento Backend', 10, 5).
 
-relevancia('Analise de Dados', 1, 4).
-relevancia('Analise de Dados', 2, 2).
-relevancia('Analise de Dados', 3, 5).
-relevancia('Analise de Dados', 4, 1).
-relevancia('Analise de Dados', 5, 1).
-relevancia('Analise de Dados', 6, 3).
-relevancia('Analise de Dados', 7, 5).
-relevancia('Analise de Dados', 8, 2).
-relevancia('Analise de Dados', 9, 1).
-relevancia('Analise de Dados', 10, 2).
+perfil('Analise de Dados', 1, 4).
+perfil('Analise de Dados', 2, 2).
+perfil('Analise de Dados', 3, 5).
+perfil('Analise de Dados', 4, 1).
+perfil('Analise de Dados', 5, 1).
+perfil('Analise de Dados', 6, 3).
+perfil('Analise de Dados', 7, 5).
+perfil('Analise de Dados', 8, 2).
+perfil('Analise de Dados', 9, 1).
+perfil('Analise de Dados', 10, 2).
 
-relevancia('DevOps', 1, 1).
-relevancia('DevOps', 2, 2).
-relevancia('DevOps', 3, 1).
-relevancia('DevOps', 4, 5).
-relevancia('DevOps', 5, 1).
-relevancia('DevOps', 6, 1).
-relevancia('DevOps', 7, 2).
-relevancia('DevOps', 8, 5).
-relevancia('DevOps', 9, 1).
-relevancia('DevOps', 10, 3).
+perfil('DevOps', 1, 1).
+perfil('DevOps', 2, 2).
+perfil('DevOps', 3, 1).
+perfil('DevOps', 4, 5).
+perfil('DevOps', 5, 1).
+perfil('DevOps', 6, 1).
+perfil('DevOps', 7, 2).
+perfil('DevOps', 8, 5).
+perfil('DevOps', 9, 1).
+perfil('DevOps', 10, 3).
 
-relevancia('Product Owner', 1, 1).
-relevancia('Product Owner', 2, 1).
-relevancia('Product Owner', 3, 2).
-relevancia('Product Owner', 4, 1).
-relevancia('Product Owner', 5, 5).
-relevancia('Product Owner', 6, 1).
-relevancia('Product Owner', 7, 1).
-relevancia('Product Owner', 8, 1).
-relevancia('Product Owner', 9, 5).
-relevancia('Product Owner', 10, 1).
+perfil('Product Owner', 1, 1).
+perfil('Product Owner', 2, 1).
+perfil('Product Owner', 3, 2).
+perfil('Product Owner', 4, 1).
+perfil('Product Owner', 5, 5).
+perfil('Product Owner', 6, 1).
+perfil('Product Owner', 7, 1).
+perfil('Product Owner', 8, 1).
+perfil('Product Owner', 9, 5).
+perfil('Product Owner', 10, 1).
