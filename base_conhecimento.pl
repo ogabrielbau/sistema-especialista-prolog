@@ -1,3 +1,5 @@
+:- dynamic resposta/2.
+
 % --- Definição das trilhas com descrição ---
 trilha('Inteligencia Artificial', 'Treinamento e aplicação de modelos de machine learning e IA.').
 trilha('Desenvolvimento Backend', 'Programar APIs, regras de negócio e soluções escaláveis no backend.').
@@ -38,3 +40,67 @@ pergunta(7, 'Você gosta de otimizar consultas em bancos de dados e manipular da
 pergunta(8, 'Você tem afinidade com pipelines de integração contínua e monitoramento de sistemas?', pipelines_ci).
 pergunta(9, 'Você se sente confortável em traduzir necessidades de clientes em funcionalidades de software?', comunicacao_cliente).
 pergunta(10, 'Você tem interesse em desenvolver soluções escaláveis e de alta performance no backend?', backend_performance).
+
+% --- Início do programa ---
+iniciar :-
+    write('Sistema Especialista para Recomendação de Trilha Acadêmica'), nl,
+    faz_perguntas,
+    calcula_todas_trilhas(TrilhasComPontuacao),
+    ordena_trilhas(TrilhasComPontuacao, TrilhasOrdenadas),
+    exibe_todas_trilhas(TrilhasOrdenadas),
+    encontra_melhor_trilha(TrilhasOrdenadas, TrilhasFinais),
+    exibe_resultado(TrilhasFinais),
+    exibe_justificativa(TrilhasFinais).
+
+iniciar_com_perfil(ArquivoPerfil) :-
+    consult(ArquivoPerfil),
+    calcula_todas_trilhas(TrilhasComPontuacao),
+    ordena_trilhas(TrilhasComPontuacao, TrilhasOrdenadas),
+    exibe_todas_trilhas(TrilhasOrdenadas),
+    encontra_melhor_trilha(TrilhasOrdenadas, TrilhasFinais),
+    exibe_resultado(TrilhasFinais),
+    exibe_justificativa(TrilhasFinais).
+
+% --- Perguntar usuário ---
+faz_perguntas :-
+    pergunta(Id, Texto, _),
+    perguntar_usuario(Texto, Resp),
+    assertz(resposta(Id, Resp)),
+    fail.
+faz_perguntas.
+
+perguntar_usuario(Texto, Resp) :-
+    format('~w (s/n)? ', [Texto]),
+    read(R),
+    ( (R = s ; R = n) -> Resp = R
+    ; write('Resposta inválida. Digite s ou n.'), nl,
+      perguntar_usuario(Texto, Resp)).
+
+% --- Exibe todas as trilhas com pontuação ---
+exibe_todas_trilhas([]).
+exibe_todas_trilhas([Trilha-Pont|T]) :-
+    trilha(Trilha, Desc),
+    nl,
+    format('Trilha: ~w -> Pontuação: ~w~nDescrição: ~w~n~n', [Trilha, Pont, Desc]),
+    exibe_todas_trilhas(T).
+
+% --- Exibir resultado ---
+exibe_resultado([]).
+exibe_resultado([Trilha]) :-
+    format('~nTrilha recomendada: ~w~n', [Trilha]).
+exibe_resultado(Trilhas) :-
+    format('~nTrilhas recomendadas (empate): ~w~n', [Trilhas]).
+
+% --- Justificativa melhorada ---
+exibe_justificativa([]).
+exibe_justificativa([Trilha|T]) :-
+    format('~nJustificativa para a trilha ~w:~n', [Trilha]),
+    forall(
+        (resposta(Id, s), 
+         pergunta(Id, TextoPergunta, Caracteristica),
+         perfil(Trilha, Caracteristica, Pontos), 
+         Pontos > 0),
+        (format('Pergunta: ~w~n', [TextoPergunta]),
+         format('Característica: ~w -> Pontos: ~w~n~n', [Caracteristica, Pontos]))
+    ),
+    exibe_justificativa(T).
