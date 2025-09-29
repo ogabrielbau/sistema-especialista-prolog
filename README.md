@@ -56,11 +56,7 @@ Para rodar o sistema no modo interativo, onde o usuário responde às perguntas:
     cd SEU_REPOSITORIO
     ```
 2.  Abra o interpretador SWI-Prolog.
-3.  Carregue o arquivo `base_conhecimento.pl` usando o predicado `consult/1`:
-    ```prolog
-    ?- consult('base_conhecimento.pl').
-    ```
-4.  Inicie o sistema chamando o predicado `iniciar/0`:
+3.  Inicie o sistema chamando o predicado `iniciar/0`:
     ```prolog
     ?- iniciar.
     ```
