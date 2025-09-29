@@ -1,7 +1,3 @@
-Com certeza! Vou criar um README.md completo para o seu projeto Prolog de recomendação de trilha acadêmica, incluindo a explicação do funcionamento e como rodar.
-
----
-
 ## README.md
 
 # Sistema Especialista para Recomendação de Trilha Acadêmica
@@ -9,14 +5,6 @@ Com certeza! Vou criar um README.md completo para o seu projeto Prolog de recome
 ## Visão Geral do Projeto
 
 Este projeto consiste em um Sistema Especialista desenvolvido em Prolog, cujo objetivo é auxiliar estudantes de cursos de tecnologia a escolher uma trilha de especialização. O sistema interage com o usuário através de um questionário dinâmico, coleta suas preferências e habilidades e, com base em uma base de conhecimento predefinida e um motor de inferência, sugere uma ou mais trilhas acadêmicas, justificando as recomendações.
-
-## Código de Ética
-
-Este trabalho é um esforço individual ou em grupo. É permitido discutir com colegas, professores e consultar diversas fontes (livros, bibliotecas, internet). No entanto, o uso de ferramentas de Inteligência Artificial para gerar o trabalho é estritamente proibido. **Qualquer indicação de plágio ou uso de IA para desenvolver o trabalho resultará na anulação.**
-
-## Avaliação e Entrega
-
-Os trabalhos serão avaliados quanto à originalidade, autoria do código e correção. A entrega é feita através de um link para um repositório público no GitHub. A participação individual será validada pelos logs de commit. Uma prova de autoria oral será realizada, e a falha implicará em redução da nota.
 
 ## Tecnologias Utilizadas
 
@@ -29,14 +17,14 @@ O repositório está organizado da seguinte forma:
 
 ```
 .
-├── base_conhecimento.pl
+├── sistema_especialista.pl
 ├── perfil1.pl
 ├── perfil2.pl
 ├── perfil3.pl
 └── README.md
 ```
 
-*   **`base_conhecimento.pl`**: Contém toda a lógica do sistema, incluindo fatos (trilhas, perfis, perguntas) e regras (motor de inferência, cálculo de pontuação, exibição de resultados).
+*   **`sistema_especialista.pl`**: Contém toda a lógica do sistema, incluindo fatos (trilhas, perfis, perguntas) e regras (motor de inferência, cálculo de pontuação, exibição de resultados).
 *   **`perfil1.pl`**, **`perfil2.pl`**, **`perfil3.pl`**: Arquivos de teste que simulam diferentes perfis de alunos com respostas predefinidas para as perguntas.
 *   **`README.md`**: Este arquivo, com a documentação do projeto.
 
@@ -74,11 +62,8 @@ Para rodar o sistema no modo interativo, onde o usuário responde às perguntas:
 Para testar o sistema com um perfil de aluno pré-definido (sem a necessidade de responder às perguntas):
 
 1.  Siga os passos 1 e 2 do "Modo Interativo" para clonar o repositório e abrir o interpretador Prolog.
-2.  Carregue o arquivo `base_conhecimento.pl`:
-    ```prolog
-    ?- consult('base_conhecimento.pl').
-    ```
-3.  Execute o sistema com um dos arquivos de perfil de teste (ex: `perfil1.pl`):
+
+2.  Execute o sistema com um dos arquivos de perfil de teste (ex: `perfil1.pl`):
     ```prolog
     ?- iniciar_com_perfil('perfil1.pl').
     ```
@@ -86,13 +71,13 @@ Para testar o sistema com um perfil de aluno pré-definido (sem a necessidade de
 
 ### Execução Online (Opcional)
 
-Se o aluno desejar, o sistema pode ser executado em ambientes online como o [SWISH Prolog](https://swish.swi-prolog.org/). Basta copiar o conteúdo de `base_conhecimento.pl` para o editor do SWISH e executar os predicados `iniciar.` ou `iniciar_com_perfil('perfil1.pl').` diretamente na área de consulta.
+Se o aluno desejar, o sistema pode ser executado em ambientes online como o [SWISH Prolog](https://swish.swi-prolog.org/). Basta copiar o conteúdo de `sistema_especialista.pl` para o editor do SWISH e executar os predicados `iniciar.` ou `iniciar_com_perfil('perfil1.pl').` diretamente na área de consulta.
 
 ## Como Funciona o Sistema
 
 O sistema especialista é construído sobre três pilares principais:
 
-1.  **Base de Conhecimento (`base_conhecimento.pl`)**:
+1.  **Base de Conhecimento (`sistema_especialista.pl`)**:
     *   **Fatos**: Descrevem o domínio do problema.
         *   `trilha(Nome, Descricao)`: Define as trilhas de especialização (ex: 'Inteligencia Artificial', 'Desenvolvimento Backend') e suas descrições.
         *   `perfil(Trilha, Caracteristica, Peso)`: Associa características de perfil (ex: `machine_learning`, `programacao_backend`) a cada trilha com um peso de relevância (1 a 5).
@@ -120,7 +105,7 @@ Para um projeto em grupo, as tarefas podem ser divididas da seguinte forma:
 
 *   **Aluno 1: Modelagem da Base de Conhecimento**
     *   Responsabilidades: Definir trilhas, características de perfil e seus pesos, e elaborar as perguntas.
-    *   Entregável: `base_conhecimento.pl` (fatos iniciais).
+    *   Entregável: `sistema_especialista.pl` (fatos iniciais).
 
 *   **Aluno 2: Implementação do Motor de Inferência**
     *   Responsabilidades: Desenvolver as regras em Prolog para calcular pontuações, ordenar e encontrar as melhores trilhas.
