@@ -98,8 +98,7 @@ exibe_justificativa([Trilha|T]) :-
     forall(
         (resposta(Id, s), 
          pergunta(Id, TextoPergunta, Caracteristica),
-         perfil(Trilha, Caracteristica, Pontos), 
-         Pontos > 0),
+         perfil(Trilha, Caracteristica, Pontos)),
         (format('Pergunta: ~w~n', [TextoPergunta]),
          format('Característica: ~w -> Pontos: ~w~n~n', [Caracteristica, Pontos]))
     ),
