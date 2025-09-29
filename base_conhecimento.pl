@@ -48,7 +48,7 @@ iniciar :-
     calcula_todas_trilhas(TrilhasComPontuacao),
     ordena_trilhas(TrilhasComPontuacao, TrilhasOrdenadas),
     exibe_todas_trilhas(TrilhasOrdenadas),
-    encontra_melhor_trilha(TrilhasOrdenadas, TrilhasFinais),
+    recomenda(TrilhasOrdenadas, TrilhasFinais),
     exibe_resultado(TrilhasFinais),
     exibe_justificativa(TrilhasFinais).
 
@@ -57,7 +57,7 @@ iniciar_com_perfil(ArquivoPerfil) :-
     calcula_todas_trilhas(TrilhasComPontuacao),
     ordena_trilhas(TrilhasComPontuacao, TrilhasOrdenadas),
     exibe_todas_trilhas(TrilhasOrdenadas),
-    encontra_melhor_trilha(TrilhasOrdenadas, TrilhasFinais),
+    recomenda(TrilhasOrdenadas, TrilhasFinais),
     exibe_resultado(TrilhasFinais),
     exibe_justificativa(TrilhasFinais).
 
@@ -125,7 +125,7 @@ ordena_trilhas(Lista, Ordenada) :-
     sort(2, @>=, Lista, Ordenada).
 
 % --- Encontra todas as trilhas com maior pontuação ---
-encontra_melhor_trilha(Lista, TrilhasFinais) :-
+recomenda(Lista, TrilhasFinais) :-
     findall(Pont, member(_-Pont, Lista), Pontos),
     max_list(Pontos, Max),
     findall(Trilha, member(Trilha-Max, Lista), TrilhasFinais).
