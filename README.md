@@ -17,14 +17,14 @@ O repositório está organizado da seguinte forma:
 
 ```
 .
-├── sistema_especialista.pl
+├── base_conhecimento.pl
 ├── perfil1.pl
 ├── perfil2.pl
 ├── perfil3.pl
 └── README.md
 ```
 
-*   **`sistema_especialista.pl`**: Contém toda a lógica do sistema, incluindo fatos (trilhas, perfis, perguntas) e regras (motor de inferência, cálculo de pontuação, exibição de resultados).
+*   **`base_conhecimento.pl`**: Contém toda a lógica do sistema, incluindo fatos (trilhas, perfis, perguntas) e regras (motor de inferência, cálculo de pontuação, exibição de resultados).
 *   **`perfil1.pl`**, **`perfil2.pl`**, **`perfil3.pl`**: Arquivos de teste que simulam diferentes perfis de alunos com respostas predefinidas para as perguntas.
 *   **`README.md`**: Este arquivo, com a documentação do projeto.
 
@@ -71,13 +71,13 @@ Para testar o sistema com um perfil de aluno pré-definido (sem a necessidade de
 
 ### Execução Online (Opcional)
 
-Se o aluno desejar, o sistema pode ser executado em ambientes online como o [SWISH Prolog](https://swish.swi-prolog.org/). Basta copiar o conteúdo de `sistema_especialista.pl` para o editor do SWISH e executar os predicados `iniciar.` ou `iniciar_com_perfil('perfil1.pl').` diretamente na área de consulta.
+Se o aluno desejar, o sistema pode ser executado em ambientes online como o [SWISH Prolog](https://swish.swi-prolog.org/). Basta copiar o conteúdo de `base_conhecimento.pl` para o editor do SWISH e executar os predicados `iniciar.` ou `iniciar_com_perfil('perfil1.pl').` diretamente na área de consulta.
 
 ## Como Funciona o Sistema
 
 O sistema especialista é construído sobre três pilares principais:
 
-1.  **Base de Conhecimento (`sistema_especialista.pl`)**:
+1.  **Base de Conhecimento (`base_conhecimento.pl`)**:
     *   **Fatos**: Descrevem o domínio do problema.
         *   `trilha(Nome, Descricao)`: Define as trilhas de especialização (ex: 'Inteligencia Artificial', 'Desenvolvimento Backend') e suas descrições.
         *   `perfil(Trilha, Caracteristica, Peso)`: Associa características de perfil (ex: `machine_learning`, `programacao_backend`) a cada trilha com um peso de relevância (1 a 5).
@@ -105,7 +105,7 @@ Para um projeto em grupo, as tarefas podem ser divididas da seguinte forma:
 
 *   **Aluno 1: Modelagem da Base de Conhecimento**
     *   Responsabilidades: Definir trilhas, características de perfil e seus pesos, e elaborar as perguntas.
-    *   Entregável: `sistema_especialista.pl` (fatos iniciais).
+    *   Entregável: `base_conhecimento.pl` (fatos iniciais).
 
 *   **Aluno 2: Implementação do Motor de Inferência**
     *   Responsabilidades: Desenvolver as regras em Prolog para calcular pontuações, ordenar e encontrar as melhores trilhas.
